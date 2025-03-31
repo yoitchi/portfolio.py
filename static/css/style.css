@@ -240,64 +240,81 @@ body {
 }
 
 /* Certificates List */
+/* Certificate list styling */
 .cert-list {
     list-style: none;
-    max-width: 600px;
-    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
 .cert-list li {
-    background: white;
-    padding: 1rem;
-    margin: 1rem 0;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    text-align: center;
+    max-width: 300px;
+}
+
+/* Box styling for certificate thumbnails */
+.cert-box {
+    background-color: #f9f9f9; /* Match the description-box background */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin: 10px 0;
+    transition: transform 0.2s;
+}
+
+.cert-box:hover {
+    transform: scale(1.05);
 }
 
 .cert-img {
-    width: 50px;
-    height: 50px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
     cursor: pointer;
-    border-radius: 5px;
 }
 
+/* Download button styling */
 .download-btn {
-    padding: 0.5rem 1rem;
-    background: #0077b6;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #007bff;
     color: white;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
 }
 
 .download-btn:hover {
-    background: #00b4d8;
+    background-color: #0056b3;
 }
 
-/* Modal */
+/* Modal styling */
 .modal {
     display: none;
     position: fixed;
-    top: 0;
+    z-index: 1000;
     left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 200;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-content {
     position: relative;
-    margin: 5% auto;
-    width: 80%;
-    max-width: 800px;
-}
-
-.modal-content img {
-    width: 100%;
-    height: auto;
+    max-width: 90%;
+    max-height: 90%;
+    text-align: center;
 }
 
 .close {
@@ -305,8 +322,148 @@ body {
     top: 10px;
     right: 20px;
     color: white;
-    font-size: 2rem;
+    font-size: 30px;
     cursor: pointer;
+}
+
+/* Box styling for modal images */
+.modal-img-box {
+    background-color: #f9f9f9; /* Match the cert-box background */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    display: inline-block;
+}
+
+.modal-img {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 4px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .cert-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cert-list li {
+        max-width: 100%;
+    }
+}/* Certificate list styling */
+.cert-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.cert-list li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 300px;
+}
+
+/* Box styling for certificate thumbnails */
+.cert-box {
+    background-color: #f9f9f9; /* Match the description-box background */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin: 10px 0;
+    transition: transform 0.2s;
+}
+
+.cert-box:hover {
+    transform: scale(1.05);
+}
+
+.cert-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Download button styling */
+.download-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.download-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Modal styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    text-align: center;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Box styling for modal images */
+.modal-img-box {
+    background-color: #f9f9f9; /* Match the cert-box background */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    display: inline-block;
+}
+
+.modal-img {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 4px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .cert-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cert-list li {
+        max-width: 100%;
+    }
 }
 
 /* Contact Form */
