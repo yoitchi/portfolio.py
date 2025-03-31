@@ -129,6 +129,15 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
+.description-box {
+    background-color: #f9f9f9; /* Light background color */
+    border: 1px solid #ddd;    /* Border around the box */
+    padding: 20px;             /* Inner spacing */
+    border-radius: 8px;        /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    max-width: 600px;          /* Optional: limit width */
+    margin: 20px 0;            /* Space above and below */
+}
 
 /* General Section Styling */
 .section {
