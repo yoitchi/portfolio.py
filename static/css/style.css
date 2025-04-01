@@ -44,6 +44,8 @@ body {
 .nav-links {
     display: flex;
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links li {
@@ -62,10 +64,18 @@ body {
 }
 
 .hamburger {
-    display: none;
     color: white;
     font-size: 1.5rem;
     cursor: pointer;
+}
+
+/* Desktop styles (default) */
+.hamburger {
+    display: none; /* Hidden on desktop */
+}
+
+.nav-links {
+    display: flex; /* Visible on desktop */
 }
 
 /* Hero Section */
@@ -75,7 +85,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #0077b6, #00b4d8);
+    background: linear-gradient(135deg, #2e2e2e, #222222);
     color: white;
     text-align: center;
 }
@@ -87,15 +97,20 @@ body {
     margin-bottom: 1.5rem;
     border: 3px solid white;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    animation: floatIn 1.5s ease-out forwards;
 }
 
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
+    opacity: 0;
+    animation: bounceReveal 1.2s ease-out forwards;
 }
 
 .hero p {
     font-size: 1.5rem;
+    opacity: 0;
+    animation: bounceReveal 1.2s ease-out 0.3s forwards; /* Slight delay after h1 */
 }
 
 .social-icons {
@@ -111,8 +126,37 @@ body {
 }
 
 .social-icons a:hover {
-    color: #00b4d8;
+    color: #cbcccc;
 }
+
+/* Keyframes for bounce reveal animation */
+@keyframes bounceReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(-10px) scale(1.02); /* Slight overshoot for bounce */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Keyframes for profile picture float-in animation */
+@keyframes floatIn {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 /* About Section */
 /* Default styles for larger screens */
@@ -562,29 +606,27 @@ html {
 }
 
 /* Responsive Design */
-@media (max-width: 1200px) {
+@media (max-width: 768px) {
     .hamburger {
-        display: block;
+        display: block; /* Visible on mobile */
     }
+
     .nav-links {
-        display: none;
+        display: none; /* Hidden by default on mobile */
         flex-direction: column;
         position: absolute;
-        top: 60px;
+        top: 100%;
         right: 0;
-        width: 200px; /* Reduced width */
+        right: 0;
         background: #1a1a1a;
-        padding: 0.5rem 0; /* Reduced padding */
+        padding: 1rem;
     }
+
     .nav-links.active {
-        display: flex;
+        display: flex; /* Shown when hamburger is clicked */
     }
+
     .nav-links li {
-        margin: 0.5rem 0; /* Reduced margin */
-    }
-    .nav-links a {
-        font-size: 1rem; /* Smaller font size */
-        padding: 0.5rem 1rem; /* Reduced padding */
-        display: block;
+        margin: 1rem 0; /* Vertical spacing for mobile */
     }
 }
